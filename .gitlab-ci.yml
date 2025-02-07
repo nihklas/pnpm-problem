@@ -1,0 +1,11 @@
+stages:
+  - build
+
+build:
+  image: nixos/nix
+  stage: build
+  before_script:
+    - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+  script:
+    - nix build -L
+
